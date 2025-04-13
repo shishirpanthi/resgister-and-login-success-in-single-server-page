@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate, Link } from "react-router-dom"; // Import useNavigate and Link
 import "react-toastify/dist/ReactToastify.css"; // Import toastify styles
 import styles from "./Login.module.css"; // Import CSS module
 
@@ -30,7 +30,7 @@ function Login() {
         toast.success("Login successful!"); // Show success toast
         console.log("Token:", result.token); // Store the token securely (e.g., localStorage)
         // Example: localStorage.setItem("authToken", result.token);
-        navigate("/home"); // Redirect to the home page
+        navigate("/"); // Redirect to the home page
       } else {
         toast.error(result.message || "Login failed"); // Show error toast
       }
@@ -92,6 +92,12 @@ function Login() {
           {isSubmitting ? "Logging in..." : "Login"}
         </button>
       </form>
+      <p className={styles.registerPrompt}>
+        Don't have an account?{" "}
+        <Link to="/register" className={styles.link}>
+          Register here
+        </Link>
+      </p>
       <ToastContainer /> {/* Add ToastContainer to render toasts */}
     </div>
   );

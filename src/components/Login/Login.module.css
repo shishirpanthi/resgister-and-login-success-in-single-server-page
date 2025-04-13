@@ -50,3 +50,23 @@
     background-color: #ccc;
     cursor: not-allowed;
 }
+
+.registerPrompt {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #555;
+    /* Neutral color for the text */
+    text-align: center;
+}
+
+.link {
+    color: #007bff;
+    /* Blue color for the link */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link:hover {
+    text-decoration: underline;
+    /* Add underline on hover */
+}

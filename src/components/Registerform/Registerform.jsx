@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate, Link } from "react-router-dom"; // Import useNavigate and Link
 import "react-toastify/dist/ReactToastify.css"; // Import toastify styles
 import styles from "./Registerform.module.css"; // Import CSS module
 
@@ -118,6 +118,12 @@ function Registerform() {
           {isSubmitting ? "Submitting..." : "Register"}
         </button>
       </form>
+      <p className={styles.redirect}>
+        Already have an account?{" "}
+        <Link to="/login" className={styles.link}>
+          Go to Login
+        </Link>
+      </p>
       <ToastContainer /> {/* Add ToastContainer to render toasts */}
     </div>
   );
