@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const cookieParser = require("cookie-parser"); // Import cookie-parser
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+app.use(cookieParser()); // Use cookie-parser middleware
 
 // MongoDB Connection
 const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/authApp";
@@ -32,7 +34,6 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model("User", userSchema);
 
 // Routes
-// Register Route
 // Register Route
 app.post("/register", async (req, res) => {
   const { username, email, password } = req.body;
@@ -94,7 +95,15 @@ app.post("/login", async (req, res) => {
       expiresIn: "1h",
     });
 
-    res.status(200).json({ message: "Login successful", token });
+    // Set the token as a cookie
+    res
+      .cookie("token", token, {
+        httpOnly: true, // Prevent client-side access to the cookie
+        secure: process.env.NODE_ENV === "production", // Use secure cookies in production
+        maxAge: 3600000, // 1 hour
+      })
+      .status(200)
+      .json({ message: "Login successful" });
   } catch (error) {
     console.error("Error logging in:", error);
     res.status(500).json({ message: "Internal server error" });
