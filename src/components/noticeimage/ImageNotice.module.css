@@ -1,0 +1,189 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* width: 100%;
+    height: 100%; */
+    /* background-color: rgba(24, 28, 24, 0.5); */
+    z-index: 1000;
+}
+
+.modal {
+    max-width: 2421px;
+    max-height: 2421px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* width: 80%;
+    height: 80%; */
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.image {
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    /* Ensures the image covers the container without distortion */
+}
+
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+.closeIcon {
+    background-color: transparent;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 32px;
+    color: white;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+.navIcon {
+    display: none;
+}
+
+.navIcon:first-of-type {
+    left: 10px;
+}
+
+.navIcon:last-of-type {
+    right: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.uploadForm {
+    margin-bottom: 20px;
+}
+
+.uploadForm input {
+    margin-right: 10px;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    /* padding: 20px; */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.closeIcon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 32px;
+}
+
+.navIcon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.navIcon:first-of-type {
+    left: 10px;
+}
+
+.navIcon:last-of-type {
+    right: 10px;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+/* Existing styles... */
+
+@media (max-width: 768px) {
+    .modal {
+        width: 90%;
+        height: auto;
+        /* padding: 10px; */
+    }
+
+    .image {
+        width: 100%;
+        height: auto;
+    }
+
+    .closeButton, .closeIcon {
+        top: 5px;
+        right: 5px;
+        font-size: 24px;
+    }
+
+    .navIcon {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal {
+        width: 95%;
+        height: auto;
+        /* padding: 5px; */
+    }
+
+    .image {
+        width: 100%;
+        height: auto;
+    }
+
+    .closeButton, .closeIcon {
+        top: 2px;
+        right: 2px;
+        font-size: 28px;
+    }
+
+    .navIcon {
+        font-size: 18px;
+    }
+}
