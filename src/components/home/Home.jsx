@@ -1,11 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import Registerform from '../Registerform/Registerform'
+import Login from '../Login/Login'
 function Home() {
   return (
       <div>
           <h1>welcome to home</h1>
-          <Registerform/>
+          <Login/>
       
     </div>
   )

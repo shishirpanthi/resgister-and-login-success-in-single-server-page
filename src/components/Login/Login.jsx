@@ -30,7 +30,7 @@ function Login() {
         toast.success("Login successful!"); // Show success toast
         console.log("Token:", result.token); // Store the token securely (e.g., localStorage)
         // Example: localStorage.setItem("authToken", result.token);
-        navigate("/"); // Redirect to the home page
+        navigate("/sending"); // Redirect to the home page
       } else {
         toast.error(result.message || "Login failed"); // Show error toast
       }

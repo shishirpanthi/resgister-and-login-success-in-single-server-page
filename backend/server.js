@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 
-// Routes
+// Routesm model
 // Register Route
 app.post("/register", async (req, res) => {
   const { username, email, password } = req.body;
@@ -167,7 +167,6 @@ app.put("/update/:id", async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
-
 
 // Start the server
 app.listen(PORT, () => {
