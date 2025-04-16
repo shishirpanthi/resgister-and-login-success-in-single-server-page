@@ -41,7 +41,27 @@ mongoose
     filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname),
   });
   const upload = multer({ storage });
-
+// Admin route
+app.get("/admin", async (req, res) => {
+  try {
+    // Example: Fetch all images (admin functionality)
+    const images = await Image.find();
+    res.status(200).json({ message: "Admin access granted", images });
+  } catch (error) {
+    console.error("Error in admin route:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+const fetchData = async () => {
+  try {
+    const response = await fetch("http://localhost:3000/admin");
+    const data = await response.json();
+    console.log(data); // Check the fetched data
+    return data.images; // Assuming the data contains an "images" array
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
   // Upload route
   app.post("/upload", upload.single("image"), async (req, res) => {
     const imageUrl = `http://localhost:3000/uploads/${req.file.filename}`;
@@ -53,6 +73,16 @@ mongoose
 
     await newImage.save();
     res.json(newImage);
+  });
+  app.delete("/images/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      await Image.findByIdAndDelete(id);
+      res.status(200).json({ message: "Image deleted successfully" });
+    } catch (error) {
+      console.error("Error deleting image:", error);
+      res.status(500).json({ message: "Internal server error" });
+    }
   });
 
   // Get all uploaded images

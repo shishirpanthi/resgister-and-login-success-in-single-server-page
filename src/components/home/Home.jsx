@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Login from '../Login/Login'
 import ImageNotice from '../noticeimage/ImageNotice'
-import ImageUpload from '../imageupload/ImageUpload'
+import ImageUpload from '../noticeimage/imageupload/ImageUpload'
 function Home() {
   return (
       <div>
