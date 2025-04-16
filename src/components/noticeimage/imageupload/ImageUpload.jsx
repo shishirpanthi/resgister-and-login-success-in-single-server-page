@@ -54,7 +54,7 @@ function ImageUpload() {
     <div className={styles.container}>
       <h2 className={styles.heading}>Upload the Image for Poster</h2>
       <form className={styles.form} onSubmit={handleUpload}>
-        <input type="file" className={styles.choosefile} accept="image/*" onChange={handleChange} />
+        <input type="file"  accept="image/*" onChange={handleChange} />
         <button type="submit" className={styles.uploadButton}>
           Upload
         </button>
