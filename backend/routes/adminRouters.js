@@ -6,6 +6,6 @@ const multer = require("multer");
 
 // Admin routes
 router.get("/", isLogin, adminController.getAdminData);
-router.get("/user", isLogin, adminController.getUserData);
+// router.get("/user", isLogin, adminController.getUserData);
 
 module.exports = router;
