@@ -56,8 +56,8 @@ function Registerform() {
             {...register("username", {
               required: "Username is required",
               pattern: {
-                value: /^[a-zA-Z\s]+$/, // Only allow letters and spaces
-                message: "Username must contain only letters and spaces",
+                value: /^[a-zA-Z\s]+@somatech$/, // Only allow letters and spaces
+                message: "Username must contain only letters and space and some tags",
               },
             })}
           />

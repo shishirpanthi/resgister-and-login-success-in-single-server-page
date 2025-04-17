@@ -42,7 +42,23 @@ const storage = multer.diskStorage({
   filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname),
 });
 const upload = multer({ storage });
+//middware for is log in admin route
+const isLogin = (req, res, next) => {
+  const token = req.cookies.token; // Assuming the token is stored in cookies
 
+  if (!token) {
+    return res.status(401).json({ message: "Unauthorized: No token provided" });
+  }
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded; // Attach user info to the request object
+    next(); // Proceed to the next middleware or route handler
+  } catch (error) {
+    console.error("Invalid token:", error);
+    res.status(401).json({ message: "Unauthorized: Invalid token" });
+  }
+};
 // Admin route
 app.get("/admin", async (req, res) => {
   try {
@@ -168,7 +184,7 @@ app.post("/login", async (req, res) => {
         maxAge: 3600000,
       })
       .status(200)
-      .json({ message: "Login successful" });
+      .json({ message: "Login successful", redirect: "/admin" }); // Include redirect URL
   } catch (error) {
     console.error("Error logging in:", error);
     res.status(500).json({ message: "Internal server error" });
