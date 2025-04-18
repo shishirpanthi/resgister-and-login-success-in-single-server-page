@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 // MongoDB Connection
-const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/authApp";
+const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/newapp";
 mongoose
   .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("Connected to MongoDB"))
@@ -42,23 +42,7 @@ const storage = multer.diskStorage({
   filename: (req, file, cb) => cb(null, Date.now() + "-" + file.originalname),
 });
 const upload = multer({ storage });
-//middware for is log in admin route
-const isLogin = (req, res, next) => {
-  const token = req.cookies.token; // Assuming the token is stored in cookies
 
-  if (!token) {
-    return res.status(401).json({ message: "Unauthorized: No token provided" });
-  }
-
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded; // Attach user info to the request object
-    next(); // Proceed to the next middleware or route handler
-  } catch (error) {
-    console.error("Invalid token:", error);
-    res.status(401).json({ message: "Unauthorized: Invalid token" });
-  }
-};
 // Admin route
 app.get("/admin", async (req, res) => {
   try {
@@ -118,7 +102,6 @@ const userSchema = new mongoose.Schema({
   username: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  isAdmin: { type: Boolean, default: false },
 });
 
 const User = mongoose.model("User", userSchema);
@@ -184,50 +167,9 @@ app.post("/login", async (req, res) => {
         maxAge: 3600000,
       })
       .status(200)
-      .json({ message: "Login successful", redirect: "/admin" }); // Include redirect URL
+      .json({ message: "Login successful" });
   } catch (error) {
     console.error("Error logging in:", error);
-    res.status(500).json({ message: "Internal server error" });
-  }
-});
-
-// Get login data in Admin route
-app.get("/admin/user", async (req, res) => {
-  try {
-    const images = await Image.find();
-    const users = await User.find({}, { password: 0 }); // Exclude passwords for security
-    res.status(200).json({ message: "Admin access granted", images, users });
-  } catch (error) {
-    console.error("Error in admin route:", error);
-    res.status(500).json({ message: "Internal server error" });
-  }
-});
-
-// Toggle admin status route
-app.patch("/users/:userId/admin", async (req, res) => {
-  const { userId } = req.params;
-  const { isAdmin } = req.body;
-
-  if (typeof isAdmin !== "boolean") {
-    return res.status(400).json({ message: "Invalid isAdmin value" });
-  }
-
-  try {
-    const user = await User.findByIdAndUpdate(
-      userId,
-      { isAdmin },
-      { new: true } // Return the updated document
-    );
-
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
-
-    res
-      .status(200)
-      .json({ message: "Admin status updated successfully", user });
-  } catch (error) {
-    console.error("Error updating admin status:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 });
@@ -242,39 +184,7 @@ app.get("/showdata", async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
-app.delete("/users/:userId", async (req, res) => {
-  try {
-    const { userId } = req.params;
 
-    const user = await User.findByIdAndDelete(userId);
-
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
-
-    res.status(200).json({ message: "User deleted successfully" });
-  } catch (error) {
-    console.error("Error deleting user:", error);
-    res.status(500).json({ message: "Internal server error" });
-  }
-});
-// Delete user route
-app.delete("/users/:userId", async (req, res) => {
-  try {
-    const { userId } = req.params;
-
-    const user = await User.findByIdAndDelete(userId);
-
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
-
-    res.status(200).json({ message: "User deleted successfully" });
-  } catch (error) {
-    console.error("Error deleting user:", error);
-    res.status(500).json({ message: "Internal server error" });
-  }
-});
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

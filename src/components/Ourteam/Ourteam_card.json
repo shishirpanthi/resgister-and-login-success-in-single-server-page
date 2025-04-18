@@ -1,0 +1,27 @@
+[
+    {
+        "image": "/images/CEO.svg",
+        "name": "Mrs. Arjun  Pathak",
+        "post": "CEO"
+    },
+    {
+        "image": "/images/ccrs.png",
+        "name": "Mr. Shishir Panthi",
+        "post": "Managing Director"
+    },
+    {
+        "image": "/images/ITmanager.png",
+        "name": "Mr. Sudip Kharel",
+        "post": "IT Manager"
+    },
+     {
+        "image": "/images/Technical support.png",
+        "name": "Mr. Promish Bhusal",
+        "post": "Support Head"
+    },
+     {
+        "image": "/images/accountant.png",
+        "name": "Mr. Safal Khanal",
+        "post": "Accountant"
+    }
+]
