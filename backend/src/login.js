@@ -22,7 +22,9 @@ app.use(cookieParser());
 
 // Routes
 const authRoutes = require("./routes/authRoutes");
+const adminRoutes = require("./routes/adminRoutes"); // Import admin routes
 app.use("/api/auth", authRoutes);
+app.use("/admin", adminRoutes); // Use admin routes
 
 // Start server
 app.listen(PORT, () => {
