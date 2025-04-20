@@ -4,6 +4,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
+const ourTeamRoutes = require("./routes/ourTeamRoutes");
 
 // Load env variables
 dotenv.config();
@@ -24,7 +25,8 @@ app.use(cookieParser());
 const authRoutes = require("./routes/authRoutes");
 const adminRoutes = require("./routes/adminRoutes"); // Import admin routes
 app.use("/api/auth", authRoutes);
-app.use("/admin", adminRoutes); // Use admin routes
+app.use("/admin", adminRoutes);
+app.use("/ourteams", ourTeamRoutes);// Use admin routes
 
 // Start server
 app.listen(PORT, () => {
