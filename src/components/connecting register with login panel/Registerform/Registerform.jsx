@@ -18,7 +18,7 @@ function Registerform() {
   const onSubmit = async (data) => {
     setIsSubmitting(true); // Disable the button and show loading
     try {
-      const response = await fetch("http://localhost:3000/register", {
+      const response = await fetch("http://localhost:3000/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

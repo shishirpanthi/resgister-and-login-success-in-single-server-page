@@ -2,7 +2,6 @@ const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-// Register a new user
 exports.register = async (req, res) => {
   const { username, email, password } = req.body;
 
@@ -22,12 +21,11 @@ exports.register = async (req, res) => {
 
     res.status(201).json({ message: "User registered successfully" });
   } catch (error) {
-    console.error("Error registering user:", error);
+    console.error("Register error:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 };
 
-// Login a user
 exports.login = async (req, res) => {
   const { email, password } = req.body;
 
@@ -57,9 +55,9 @@ exports.login = async (req, res) => {
         maxAge: 3600000,
       })
       .status(200)
-      .json({ message: "Login successful", redirect: "/admin" });
+      .json({ message: "Login successful" });
   } catch (error) {
-    console.error("Error logging in:", error);
+    console.error("Login error:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 };
