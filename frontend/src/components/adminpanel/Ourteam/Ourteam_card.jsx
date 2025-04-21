@@ -34,7 +34,15 @@ const Ourteam_card = () => {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setFormData({ ...formData, image: reader.result }); // Save base64 string
+        const img = new Image();
+        img.onload = () => {
+          if (img.width > 250 || img.height > 250) {
+            alert("Image dimensions should not exceed 250px by 250px.");
+          } else {
+            setFormData({ ...formData, image: reader.result }); // Save base64 string
+          }
+        };
+        img.src = reader.result;
       };
       reader.readAsDataURL(file);
     }
@@ -134,7 +142,7 @@ const Ourteam_card = () => {
           required={!isEditing} // File input is required only for new entries
         />
         <p className={styles.dimensionMessage}>
-          *Please upload an image with dimensions 150x150 pixels.
+          *Please upload an image with maxium dimensions 250x250 pixels.
         </p>
         <button type="submit">
           {isEditing ? "Update Team Member" : "Add Team Member"}
