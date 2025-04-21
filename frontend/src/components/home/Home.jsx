@@ -1,21 +1,21 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Login from '../connecting register with login panel/Login/Login'
-import ImageNotice from '../noticeimage/ImageNotice'
-import ImageUpload from '../noticeimage/imageupload/ImageUpload'
+// import ImageNotice from '../noticeimage/ImageNotice'
 import TeamMembersPage from './../adminpanel/Ourteam/TeamMembersPage';
-import Registerform from './/../connecting register with login panel/Registerform/Registerform'
+import Registerform from '../connecting register with login panel/Registerform/Registerform'
+// import ImageNotice from '../noticeimage/ImageNotice'
 function Home() {
   return (
       <div>
       {/* <h1>welcome to home</h1>
       <ImageNotice />
-      <ImageUpload />
+  
       <Login /> */}
-      {/* <Login /> */}
-      <Registerform />
+      {/* <ImageNotice /> */}
+      <Login />
+      {/* <Registerform /> */}
       <TeamMembersPage />
-      
     </div>
   )
 }

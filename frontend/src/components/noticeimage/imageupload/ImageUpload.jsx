@@ -37,7 +37,7 @@ function ImageUpload() {
     formData.append("image", image);
 
     try {
-      const res = await fetch("http://localhost:3000/upload", {
+      const res = await fetch("http://localhost:3000/uploadimgnotice", {
         method: "POST",
         body: formData,
       });

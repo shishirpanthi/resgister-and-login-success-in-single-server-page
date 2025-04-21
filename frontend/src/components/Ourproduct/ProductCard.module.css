@@ -1,0 +1,218 @@
+/* ProductCard.module.css */
+
+/* Header Section */
+.productwrapper {
+    background: linear-gradient(to bottom, #C70D3AE3, #F96C07F2);
+    padding: 0;
+    /* height: 88vh; */
+
+    /* clip-path: ellipse(80% 50% at 50% 100%); */
+}
+
+.headerSection {
+    text-align: center;
+    padding: 40px 20px;
+    /* background: linear-gradient(to bottom, #C70D3AE3, #F96C07F2); */
+    color: white;
+}
+
+.headerTitle {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-family: poppins;
+}
+
+.headerDescription {
+    width: 40%;
+    justify-content: center;
+    display: flex;
+    font-size: 16px;
+    color: black;
+    font-family: poppins;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* Product Container */
+.productContainer {
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+    padding: 40px 20px;
+    /* margin: 40px 0px; */
+    /* background: linear-gradient(to bottom, #C70D3AE3, #F96C07F2); */
+}
+
+/* Product Card */
+.productCard {
+    overflow: hidden;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    max-width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 30px;
+}
+
+.productCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.productImage {
+    width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.productTitle {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 15px 0 10px;
+    color: black;
+    font-family: poppins;
+}
+
+.productDescription {
+    font-size: 16px;
+    color: black;
+    font-weight: 400;
+    font-family: poppins;
+    line-height: 1.4;
+}
+
+/* Button Section */
+.buttonSection {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    /* background-color: var(--food_bg_color); */
+}
+
+.seeMoreButton {
+    width: fit-content;
+    font-family: poppins;
+    background-color: black;
+    color: white;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.seeMoreButton:hover {
+    background-color: var(--food_bg_color);
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .productwrapper {
+        background: linear-gradient(to bottom, #C70D3AE3, #F96C07F2);
+        padding: 0;
+        height: auto;
+
+        /* clip-path: ellipse(80% 50% at 50% 100%); */
+    }
+
+    .headerTitle {
+        font-size: 32px;
+    }
+
+    .headerDescription {
+        width: 70%;
+        font-size: 14px;
+    }
+
+    .productCard {
+        max-width: 45%;
+    }
+
+    .seeMoreButton {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .productContainer {
+        padding: 5px 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .productCard {
+        max-width: 90%;
+    }
+
+    .headerTitle {
+        font-size: 24px;
+    }
+
+    .headerDescription {
+        width: 95%;
+        justify-content: center;
+        display: flex;
+        font-size: 14px;
+        color: black;
+        font-family: poppins;
+        margin: 0 auto;
+        /* line-height: 1.5; */
+    }
+
+    .seeMoreButton {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .headerTitle {
+        font-size: 26px;
+    }
+
+    .productImage {
+        width: 60%;
+        max-height: 220px;
+        object-fit: contain;
+        border-radius: 8px;
+    }
+
+
+    .productTitle {
+        font-size: 18px;
+
+    }
+
+    .productDescription {
+        font-size: 14px;
+
+    }
+
+    .headerDescription {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .productCard {
+        max-width: 80%;
+    }
+
+    .seeMoreButton {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+}

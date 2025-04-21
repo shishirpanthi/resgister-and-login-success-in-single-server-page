@@ -1,7 +1,10 @@
 import React from 'react'
 import RegisteredUserDetails from './RegisteredUserDetails/RegisteredUserDetails'
 import Ourteam_card from './Ourteam/Ourteam_card'
-import TeamMember from './Ourteam/TeamMembersPage'
+import ImageUpload from '../imageupload/ImageUpload'
+
+
+
 
 function Admin() {
   return (
@@ -9,6 +12,11 @@ function Admin() {
       <h1>Admin Panel</h1>
       <RegisteredUserDetails />
       <Ourteam_card />
+      <ImageUpload />
+   
+     
+      {/* <ImageUpload /> */}
+      {/* <ImageNotice /> */}
       {/* <TeamMember/> */}
     </div>
   )

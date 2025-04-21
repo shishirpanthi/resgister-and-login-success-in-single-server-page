@@ -12,7 +12,7 @@ const ImageNotice = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const res = await fetch("http://localhost:3000/images");
+        const res = await fetch("http://localhost:3000/uploadimgnotice");
         const data = await res.json();
         const imageUrls = data.map((img) => img.url); // Assuming the response contains an array of image objects with a `url` field
         setImages(imageUrls);
@@ -94,60 +94,3 @@ const ImageNotice = () => {
 };
 
 export default ImageNotice;
-
-
-
-///for only show single pic"
-// import React, { useState, useEffect } from "react";
-// import { AiOutlineClose } from "react-icons/ai"; // Import the close icon
-// import styles from "./ImageNotice.module.css";
-
-// const ImageNotice = () => {
-//   const [isOpen, setIsOpen] = useState(true);
-//   const [latestImage, setLatestImage] = useState(null); // Store only the latest image
-
-//   // Fetch the latest image from the server
-//   useEffect(() => {
-//     const fetchLatestImage = async () => {
-//       try {
-//         const res = await fetch("http://localhost:3000/images");
-//         const data = await res.json();
-//         if (data.length > 0) {
-//           const latestImageUrl = data[data.length - 1].url; // Get the latest image URL
-//           setLatestImage(latestImageUrl);
-//         }
-//       } catch (err) {
-//         console.error("Error fetching images:", err);
-//       }
-//     };
-
-//     fetchLatestImage();
-//   }, []);
-
-//   return (
-//     <>
-//       {isOpen && latestImage && (
-//         <>
-//           <div
-//             className={styles.backdrop}
-//             onClick={() => setIsOpen(false)}
-//           ></div>
-//           <div className={styles.modal}>
-//             <img
-//               src={latestImage} // Display the latest image
-//               alt="Latest Notice"
-//               className={styles.image}
-//             />
-//             <AiOutlineClose
-//               className={styles.closeIcon}
-//               onClick={() => setIsOpen(false)}
-//             />
-//           </div>
-//         </>
-//       )}
-//       {!latestImage && <p>Loading latest image...</p>}
-//     </>
-//   );
-// };
-
-// export default ImageNotice;
