@@ -10,6 +10,7 @@ const errorHandler = require("./middlewares/errorHandler");
 const path = require("path");
 const imageUploadRoute = require("./routes/imageUploadRoute");
 const serviceRoutes = require("./routes/serviceRoutes")
+const sliderimgRoutes = require("./routes/sliderimgRoutes");
 // const cors = require("cors");
 // app.use(cors());
 
@@ -45,6 +46,7 @@ app.use("/admin", adminRoutes);
 app.use("/ourteams", ourTeamRoutes);// Use admin routes
 app.use("/api", imageUploadRoute);
 app.use('/api/services', serviceRoutes);
+app.use("/api/sliderimg", sliderimgRoutes);
 // Start server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

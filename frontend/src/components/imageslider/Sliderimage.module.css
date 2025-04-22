@@ -1,0 +1,67 @@
+.container {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.fileInput {
+    padding: 10px;
+}
+
+.uploadBtn {
+    padding: 10px 20px;
+    background-color: #3f51b5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.uploadBtn:hover {
+    background-color: #303f9f;
+}
+
+.slider {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.slide {
+    position: relative;
+}
+
+.image {
+    max-width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.deleteBtn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #e53935;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.deleteBtn:hover {
+    background-color: #c62828;
+}
