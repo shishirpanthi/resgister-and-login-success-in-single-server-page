@@ -1,10 +1,7 @@
 import React from 'react'
 import RegisteredUserDetails from './RegisteredUserDetails/RegisteredUserDetails'
 import Ourteam_card from './Ourteam/Ourteam_card'
-import ImageUpload from '../imageupload/ImageUpload'
-
-
-
+import ImageUpload from '../imageupload/admin panel for image upload/ImageUpload'
 
 function Admin() {
   return (

@@ -4,10 +4,12 @@ import Login from '../connecting register with login panel/Login/Login'
 // import ImageNotice from '../noticeimage/ImageNotice'
 import TeamMembersPage from './../adminpanel/Ourteam/TeamMembersPage';
 import Registerform from '../connecting register with login panel/Registerform/Registerform'
-// import ImageNotice from '../noticeimage/ImageNotice'
+import Gallery from '../imageupload/show in Another component img/Gallery';
+
+
 function Home() {
   return (
-      <div>
+    <div>
       {/* <h1>welcome to home</h1>
       <ImageNotice />
   
@@ -16,8 +18,9 @@ function Home() {
       <Login />
       {/* <Registerform /> */}
       <TeamMembersPage />
+      <Gallery />
     </div>
-  )
+  );
 }
 
 export default Home

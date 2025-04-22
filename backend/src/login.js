@@ -8,6 +8,7 @@ const ourTeamRoutes = require("./routes/ourTeamRoutes");
 const imageRoutes = require("./routes/imageRoutes");
 const errorHandler = require("./middlewares/errorHandler");
 const path = require("path");
+const imageUploadRoute = require("./routes/imageUploadRoute");
 // const cors = require("cors");
 // app.use(cors());
 
@@ -40,8 +41,7 @@ const adminRoutes = require("./routes/adminRoutes"); // Import admin routes
 app.use("/api/auth", authRoutes);
 app.use("/admin", adminRoutes);
 app.use("/ourteams", ourTeamRoutes);// Use admin routes
-app.use("/api/images", imageRoutes);
-
+app.use("/api", imageUploadRoute);
 
 // Start server
 app.listen(PORT, () => {
