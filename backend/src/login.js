@@ -9,6 +9,7 @@ const imageRoutes = require("./routes/imageRoutes");
 const errorHandler = require("./middlewares/errorHandler");
 const path = require("path");
 const imageUploadRoute = require("./routes/imageUploadRoute");
+const serviceRoutes = require("./routes/serviceRoutes")
 // const cors = require("cors");
 // app.use(cors());
 
@@ -31,6 +32,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.json());
+app.use('/uploads', express.static('uploads'));
 
  // Serve uploaded images statically
 
@@ -42,7 +44,7 @@ app.use("/api/auth", authRoutes);
 app.use("/admin", adminRoutes);
 app.use("/ourteams", ourTeamRoutes);// Use admin routes
 app.use("/api", imageUploadRoute);
-
+app.use('/api/services', serviceRoutes);
 // Start server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

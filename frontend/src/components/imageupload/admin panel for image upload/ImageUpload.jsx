@@ -69,14 +69,19 @@ const ImageUpload = () => {
 
       <div className={styles.gallery}>
         {images.map((img) => (
-          <div key={img._id} className={styles.imageCard}>
-            <img src={img.image} alt={img.name} />
-            <button
-              className={styles.deleteBtn}
-              onClick={() => handleDelete(img._id)}
-            >
-              ×
-            </button>
+          <div key={img._id} className={styles.imageCardWrapper}>
+            <div className={styles.imageCard}>
+              <img src={img.image} alt={img.name} />
+              <button
+                className={styles.deleteBtn}
+                onClick={() => handleDelete(img._id)}
+              >
+                ×
+              </button>
+            </div>
+            <p className={styles.imageDescription}>
+              Enter a description for this image.
+            </p>
           </div>
         ))}
       </div>
