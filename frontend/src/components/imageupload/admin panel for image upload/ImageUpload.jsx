@@ -57,7 +57,7 @@ const ImageUpload = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h2 className={styles.title}>Upload Image</h2>
+      <h2 className={styles.title}>Upload Image For Gallery</h2>
 
       <div className={styles.uploadBox}>
         <input type="file" onChange={handleFileChange} accept="image/*" />
